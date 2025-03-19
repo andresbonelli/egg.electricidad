@@ -5,9 +5,7 @@ import com.egg.electricidad.domain.entity.Fabrica;
 import com.egg.electricidad.domain.repository.ArticuloRepository;
 import com.egg.electricidad.domain.repository.FabricaRepository;
 import com.egg.electricidad.service.ArticuloService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -29,14 +27,19 @@ public class ArticuloServiceTests {
 
     @BeforeEach
     void setUp() {
-        articuloRepository.deleteAll();
         Fabrica f1 = new Fabrica();
         f1.setNombre("Fabrica Test 1");
         fabricaTestId = fabricaRepository.save(f1).getId();
     }
 
+    @AfterEach
+    void tearDown() {
+        fabricaRepository.deleteById(fabricaTestId);
+    }
+
+
     @Test
-    void testCreateArticulo() {
+    void testNroArticuloSequence() {
         articuloService.crearArticulo(new CrearArticuloDTO(
                 "Articulo Test 1",
                 "descripcion 1",
@@ -68,6 +71,9 @@ public class ArticuloServiceTests {
         );
         Assertions.assertNotNull(articuloRepository.findByNroArticulo(4));
         Assertions.assertNull(articuloRepository.findByNroArticulo(2));
+        articuloService.eliminarArticulo(1);
+        articuloService.eliminarArticulo(3);
+        articuloService.eliminarArticulo(4);
     }
 
 
