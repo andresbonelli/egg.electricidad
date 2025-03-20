@@ -3,6 +3,7 @@ package com.egg.electricidad.api.controller;
 import com.egg.electricidad.api.dto.CrearArticuloDTO;
 import com.egg.electricidad.service.ArticuloService;
 import com.egg.electricidad.service.FabricaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,7 +33,7 @@ public class ArticuloController {
     }
 
     @PostMapping("/cargarnuevo")
-    public String crearArticulo(@ModelAttribute CrearArticuloDTO request) {
+    public String crearArticulo(@ModelAttribute @Valid CrearArticuloDTO request) {
         articuloService.crearArticulo(request);
         return "redirect:/articulo/lista";
     }

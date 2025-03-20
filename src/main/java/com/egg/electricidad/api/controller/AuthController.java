@@ -2,6 +2,7 @@ package com.egg.electricidad.api.controller;
 
 import com.egg.electricidad.api.dto.UserRegisterDTO;
 import com.egg.electricidad.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,7 +30,7 @@ public class AuthController {
     }
 
     @PostMapping("/registrar")
-    public String registrar(@ModelAttribute UserRegisterDTO usuario, ModelMap model) {
+    public String registrar(@ModelAttribute @Valid UserRegisterDTO usuario, ModelMap model) {
         usuarioService.registro(usuario);
         model.put("exito", "Usuario registrado con éxito");
         return "redirect:login";
