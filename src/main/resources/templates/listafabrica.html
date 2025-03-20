@@ -10,11 +10,7 @@
 <body>
 
 <!-- Navbar -->
-<header>
-    <nav>
-        <h1>La Casa de Electricidad</h1>
-    </nav>
-</header>
+<header th:replace="~{fragments/header :: header}"></header>
 
 <main>
     <section class="container">
@@ -23,8 +19,7 @@
         <!-- Mensajes de éxito o error (puedes usarlo más adelante con backend si es necesario) -->
         <div class="alert alert-success" id="exito" style="display: none;">¡Operación exitosa!</div>
         <div class="alert alert-danger" id="error" style="display: none;">¡Hubo un error!</div>
-
-        <a href="/fabrica/crear" class="btn">Nueva Fábrica</a>
+        <a href="/inicio" class="btn">volver al inicio</a>
 
         <!-- Tabla para mostrar las fábricas -->
         <table class="table lista-table">
@@ -54,6 +49,7 @@
                 </tr>
             </tbody>
         </table>
+        <a href="/fabrica/crear" class="btn">Nueva Fábrica</a>
     </section>
 </main>
 <footer>

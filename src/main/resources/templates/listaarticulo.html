@@ -10,11 +10,7 @@
 <body class="lista-articulos">
 
 <!-- Navbar -->
-<header>
-    <nav>
-        <h1>La Casa de Electricidad</h1>
-    </nav>
-</header>
+<header th:replace="~{fragments/header :: header}"></header>
 
 <main class="main-lista-articulos">
     <section class="container">
@@ -23,8 +19,7 @@
         <!-- Mensajes de éxito o error -->
         <div class="alert alert-success" id="exito" style="display: none;">¡Operación exitosa!</div>
         <div class="alert alert-danger" id="error" style="display: none;">¡Hubo un error!</div>
-
-        <a href="/articulo/crear" class="btn">Nuevo Artículo</a>
+        <a href="/inicio" class="btn">volver al inicio</a>
 
         <!-- Tabla para mostrar los artículos -->
         <table class="table lista-table">
@@ -56,6 +51,7 @@
                 </tr>
             </tbody>
         </table>
+        <a href="/articulo/crear" class="btn">Nuevo Artículo</a>
     </section>
 </main>
 
