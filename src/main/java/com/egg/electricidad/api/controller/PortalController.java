@@ -12,7 +12,7 @@ public class PortalController {
 
     @GetMapping
     public String index() {
-        return "index";
+        return "inicio";
     }
 
     @GetMapping("/inicio")
