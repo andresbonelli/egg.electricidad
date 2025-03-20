@@ -51,7 +51,7 @@ public class ArticuloService {
         }
         if (null != request.fabricaId()) {
             articulo.setFabrica(fabricaRepository
-                    .findById(UUID.fromString(request.fabricaId()))
+                    .findById(request.fabricaId())
                     .orElseThrow(RecordNotFoundException::new));
         }
         articuloRepository.save(articulo);
@@ -68,7 +68,7 @@ public class ArticuloService {
         articulo.setNombre(request.nombre());
         articulo.setDescripcion(request.descripcion());
         articulo.setFabrica(fabricaRepository
-                .findById(UUID.fromString(request.fabricaId()))
+                .findById(request.fabricaId())
                 .orElseThrow(RecordNotFoundException::new));
         return articulo;
     }

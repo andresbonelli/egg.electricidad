@@ -120,30 +120,30 @@ main {
 
 /* Estilos para la tabla de artículos */
 /* Estilos para la tabla de artículos */
-.lista-articulos-table {
+.lista-table {
     width: 100%; /* Ancho total */
     table-layout: auto; /* Ajusta el ancho según el contenido */
     border-collapse: collapse; /* Bordes sin espacio */
 }
 
-.lista-articulos-table th, .lista-articulos-table td {
+.lista-table th, .lista-table td {
     padding: 15px; /* Más espacio para los contenidos */
     text-align: left;
     border: 1px solid #ddd;
     word-wrap: break-word; /* Para que el texto largo se ajuste a la celda */
 }
 
-.lista-articulos-table th {
+.lista-table th {
     background-color: #f4f4f4; /* Fondo claro para las cabeceras */
     font-weight: bold;
 }
 
-.lista-articulos-table td {
+.lista-table td {
     background-color: #fff; /* Fondo blanco para las celdas */
 }
 
 /* Ajustes para los botones */
-.lista-articulos-table .btn {
+.lista-table .btn {
     padding: 8px 15px; /* Ajustamos el tamaño del botón */
     text-decoration: none;
     color: white;
@@ -153,32 +153,32 @@ main {
     display: inline-block; /* Asegura que los botones no se superpongan */
 }
 
-.lista-articulos-table .btn-edit {
+.lista-table .btn-edit {
     background-color: #28a745; /* Botón verde para editar */
 }
 
-.lista-articulos-table .btn-delete {
+.lista-table .btn-delete {
     background-color: #dc3545; /* Botón rojo para eliminar */
 }
 
 /* Asegura que la tabla tenga un ancho adecuado para las columnas */
-.lista-articulos-table th:nth-child(1), .lista-articulos-table td:nth-child(1) {
+.lista-table th:nth-child(1), .lista-table td:nth-child(1) {
     width: 10%; /* Columna ID */
 }
 
-.lista-articulos-table th:nth-child(2), .lista-articulos-table td:nth-child(2) {
+.lista-table th:nth-child(2), .lista-table td:nth-child(2) {
     width: 25%; /* Columna Nombre */
 }
 
-.lista-articulos-table th:nth-child(3), .lista-articulos-table td:nth-child(3) {
+.lista-table th:nth-child(3), .lista-table td:nth-child(3) {
     width: 35%; /* Columna Descripción */
 }
 
-.lista-articulos-table th:nth-child(4), .lista-articulos-table td:nth-child(4) {
+.lista-table th:nth-child(4), .lista-table td:nth-child(4) {
     width: 20%; /* Columna Fábrica */
 }
 
-.lista-articulos-table th:nth-child(5), .lista-articulos-table td:nth-child(5) {
+.lista-table th:nth-child(5), .lista-table td:nth-child(5) {
     width: 10%; /* Columna Acciones */
 }
 
@@ -212,4 +212,32 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+/* Estilos generales */
+.lista-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lista-table th,
+.lista-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Definir anchos específicos y truncado */
+.lista-table td:nth-child(2), /* Nombre */
+.lista-table td:nth-child(3)  /* Descripción */ {
+    max-width: 500px; /* Ajusta el ancho según necesidad */
+}
+
+/* Estilos específicos para evitar problemas con el texto */
+.lista-table th:nth-child(2),
+.lista-table th:nth-child(3) {
+    max-width: 500px;
 }

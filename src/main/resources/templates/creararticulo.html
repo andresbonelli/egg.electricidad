@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cargar nuevo articulo</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <h1>La Casa de Electricidad</h1>
+  </nav>
+</header>
+
+<main>
+  <section class="form-container">
+    <h2>Cargar nuevo articulo</h2>
+    <a href="/inicio" class="btn">volver al inicio</a>
+
+
+    <form th:action="@{/articulo/cargarnuevo}" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" class="form-control"  id="nombre" name="nombre"  th:value="${nombre}" >
+
+      <label for="descripcion">Descripcion:</label>
+      <input type="text" class="form-control"  id="descripcion" name="descripcion"  th:value="${descripcion}" >
+
+      <label for="fabricaId">Fabrica:</label>
+      <select class="form-control" id="fabricaId" name="fabricaId" required>
+        <option value="">Seleccionar Fabrica</option>
+        <option
+                th:each="fabrica : ${fabricas}"
+                th:value="${fabrica.id}"
+                th:text="${fabrica.nombre}"
+        ></option>
+      </select>
+
+
+      <button type="submit" class="btn">Cargar</button>
+
+    </form>
+    <div th:replace="~{fragments/mensajes :: mensajes}"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 La Casa de Electricidad. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
